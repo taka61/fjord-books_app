@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  confirm: "Are you sure?"
+  notice:
+    e1: "Book was successfully created."
+    e2: "Book was successfully updated."
+    e3: "Book was successfully destroyed."
+   
+
