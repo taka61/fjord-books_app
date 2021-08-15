@@ -1,5 +1,20 @@
 ---
 ja:
+  books: # app/views/books/を表す
+    index: # app/views/books/index.html.erbを表す
+      books: "書籍一覧"
+      confirm: "本当に削除しますか？"
+    edit:
+      editing: "本の編集"
+    new:
+      new_book: "新規登録"
+    create:
+      notice: "新規登録できました"
+    update:
+      notice: "本の編集ができました"
+    destroy:
+      notice: "削除しました"
+
   activerecord:
     errors:
       messages:
@@ -7,12 +22,6 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
-  books: "書籍一覧"
-  new_book: "新規登録"
-  editing: "本の編集"
-  confirm: "本当に削除しますか？"
-
   date:
     abbr_day_names:
     - 日
@@ -23,7 +32,7 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -49,7 +58,7 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t 'books' %></h1>
+<h1><%= t '.books' %></h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
         <td><%= book.picture %></td>
         <td><%= link_to t(:show, scope: 'button'), book %></td>
         <td><%= link_to t(:edit, scope: 'button'), edit_book_path(book) %></td>
-         <td><%= link_to t(:destroy, scope: 'button'), book, method: :delete, data: { confirm: t('confirm') } %></td>
+         <td><%= link_to t(:destroy, scope: 'button'), book, method: :delete, data: { confirm: t('.confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
