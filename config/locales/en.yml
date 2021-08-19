@@ -30,4 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  books: # app/views/books/を表す
+    index: # app/views/books/index.html.erbを表す
+      confirm: "Are you sure?"
+    create:
+      notice: "Book was successfully created."
+    update:
+      notice: "Book was successfully updated."
+    destroy:
+      notice: "Book was successfully destroyed."
