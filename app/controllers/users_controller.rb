@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
-    @user = User.page(params[:page]).per(5)
+    @user = User.page(params[:page])
   end
 
   def show
-    @user = User.find(params[:id]) #追記
+    @user = User.find(params[:id])
   end
 end

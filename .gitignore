@@ -42,3 +42,9 @@ yarn-debug.log*
 
 /public/uploads/*
 .env
+
+/app/views/books
+.jbuilder
+
+/app/assets/stylesheets
+.scss
