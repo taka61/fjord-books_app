@@ -38,8 +38,10 @@ end
 group :development do
   gem 'faker'
   gem 'i18n_generators'
+  gem 'image_processing', '~> 1.2'
   gem 'letter_opener_web'
   gem 'listen', '~> 3.3'
+  gem 'mini_magick', '~> 4.11'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
