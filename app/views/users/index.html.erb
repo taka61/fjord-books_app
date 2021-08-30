@@ -1,4 +1,4 @@
-<h1>ユーザー一覧</h1>
+<h1><%= User.model_name.human %></h1>
 <% @user.each do |user| %>
  <li><a href="/users/<%= (user["id"]) %>"><%= (user["name"]) %></a></li>
 <% end %>
@@ -9,5 +9,5 @@
 </P>
 
 <p>
-<%= link_to 'マイページ', user_path(id: current_user.id), method: :get  %>
+<%= link_to t('views.common.mypage'), user_path(id: current_user.id), method: :get  %>
 </P>
