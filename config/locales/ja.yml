@@ -212,9 +212,13 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      mypage: マイページ
+      users: ユーザー一覧
+      books: 本一覧
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      user_page: ユーザーページ
     pagination:
       first: '最初'
       last: '最後'
