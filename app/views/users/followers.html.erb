@@ -1,0 +1,8 @@
+<h1><%= t('users.followers.follower') %></h1>
+<% if @users.present? %>
+  <% @users.each do |user| %>
+　  <li><%= link_to "#{user.name}", user_path("#{user.id}") %></li>
+  <% end %>
+<% else %>
+  <p><%= t('users.followers.notice') %></p>
+<% end %>

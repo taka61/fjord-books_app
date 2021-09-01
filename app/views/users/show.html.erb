@@ -28,28 +28,29 @@
 <p>
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <% if @user.avatar.attached? %>
-    <br>
-    <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+  <br>
+  <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
   <% end %>
 </p>
 
 <p>
-<% unless @user == current_user %>
-  <% if current_user.following?(@user) %>
-    <%= button_to 'unfollow', relationship_path, method: :delete %>
-  <% else %>
-      <%= form_for(@user.followers.build) do |f| %>
-        <%= hidden_field_tag :follow_id, @user.id %>
-        <%= button_to 'フォロー', relationships_path(follower: @user), mesthod: :post %>
+  <% unless @user == current_user %>
+    <% if current_user.following?(@user) %>
+      <%= button_to t('users.show.unfollow'), relationship_path, method: :delete %>
+    <% else %>
+      <%= form_for(@user.active_relationships.build) do |f| %>
+        <%= hidden_field_tag :follower_id, @user.id %>
+        <%= button_to t('users.show.following'), relationships_path(follower: @user), mesthod: :post %>
       <% end %>
     <% end %>
-<% end %>
+  <% end %>
 </p>
 
 <p>
-<%= link_to(@user.followers.count, "/users/#{:user_id}/followers") %>
-  <strong>followers </strong>
-  <%= @user.followings.count  %>
+ <strong><%= t('users.show.followings') %></strong>
+ <%= link_to "#{@user.active_relationships.count}", followings_user_path %>
+ <strong><%= t('users.show.followers') %></strong>
+ <%= link_to "#{@user.passive_relationships.count}", followers_user_path %>
 </p>
 
 <% if current_user == @user %>
