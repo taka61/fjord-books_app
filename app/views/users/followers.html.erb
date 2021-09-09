@@ -2,7 +2,7 @@
 <% if @users.present? %>
   <% @users.each do |user| %>
     <ul>
-　    <li><%= link_to "#{user.name}", user_path("#{user.id}") %></li>
+      <li><%= link_to "#{user.name}", user_path("#{user.id}") %></li>
     </ul>
   <% end %>
 <% else %>
