@@ -2,10 +2,11 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
+  before_action :only_current_user, only: %i[edit update destroy]
 
   # GET /reports
   def index
-    @reports = Report.all
+    @reports = Report.order(:id)
   end
 
   # GET /reports/1
@@ -22,7 +23,7 @@ class ReportsController < ApplicationController
   # POST /reports
   def create
     @report = Report.new(report_params)
-
+    @report.user = current_user
     if @report.save
       redirect_to @report, notice: 'Report was successfully created.'
     else
@@ -55,5 +56,9 @@ class ReportsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def report_params
     params.require(:report).permit(:title, :body, :user_id)
+  end
+
+  def only_current_user
+    redirect_to reports_url unless @report.user == current_user
   end
 end

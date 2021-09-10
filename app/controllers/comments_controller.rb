@@ -6,12 +6,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user = current_user
-    @comment.save
+    @comment.save!
     redirect_to @commentable
   end
 
   def destroy
     @comment = @commentable.comments.find_by(params[:id])
+    @comment.user = current_user
     @comment.destroy
     redirect_to @commentable
   end
