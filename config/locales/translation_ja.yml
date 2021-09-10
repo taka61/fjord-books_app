@@ -22,9 +22,8 @@ ja:
         title: タイトル
         body: 本文
         user: ユーザー
-        time: 投稿日時
+        created_at: 投稿日時
       comment:
         comment: コメント
         user: 投稿者
-        time: 投稿日時
-        addition: コメント追加
+        created_at: 投稿日時

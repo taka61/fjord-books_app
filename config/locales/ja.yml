@@ -256,5 +256,6 @@ ja:
       edit:
         title: "アカウント編集"
   comments:
-    comment:
+    form:
+      title: "コメント追加"
       notice: "まだコメントはありません"
