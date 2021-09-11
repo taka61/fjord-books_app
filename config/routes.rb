@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+
   devise_for :users
   root to: 'books#index'
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: %i(index show)
   resources :users do
     get :followings, :followers, on: :member
-  resources :relationships, only: %i(create destroy)
+    post 'relationships', to: 'relationships#create'
+    delete 'relationships', to: 'relationships#destroy'
   end
 end

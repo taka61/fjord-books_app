@@ -35,11 +35,12 @@
 <p>
   <% unless @user == current_user %>
     <% if current_user.following?(@user) %>
-      <%= button_to t('users.show.unfollow'), relationship_path, method: :delete %>
+      <%= form_with(model:@user, url: user_relationships_path(@user), method: :delete, local: true) do |f| %>
+      <%= f.submit t('users.show.unfollow') %>
+      <% end %>
     <% else %>
-      <%= form_for(@user.active_relationships.build) do |f| %>
-        <%= hidden_field_tag :follower_id, @user.id %>
-        <%= button_to t('users.show.following'), relationships_path(follower: @user), mesthod: :post %>
+      <%= form_with(model:@user, url: user_relationships_path(@user), method: :post, local: true) do |f| %>
+      <%= f.submit t('users.show.following') %>
       <% end %>
     <% end %>
   <% end %>
@@ -47,9 +48,9 @@
 
 <p>
  <strong><%= t('users.show.followings') %></strong>
- <%= link_to "#{@user.active_relationships.count}", followings_user_path %>
+ <%= link_to "#{@user.active_relationships.count}", followings_user_path(@user) %>
  <strong><%= t('users.show.followers') %></strong>
- <%= link_to "#{@user.passive_relationships.count}", followers_user_path %>
+ <%= link_to "#{@user.passive_relationships.count}", followers_user_path(@user) %>
 </p>
 
 <% if current_user == @user %>
