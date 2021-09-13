@@ -21,12 +21,12 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :following
   has_many :followers, through: :passive_relationships, source: :follower
 
-  def follow(user_id)
-    active_relationships.find_or_create_by(following_id: user_id)
+  def follow(user)
+    active_relationships.find_or_create_by(following_id: user.id)
   end
 
-  def unfollow(user_id)
-    active_relationships.find_by(following_id: user_id)&.destroy
+  def unfollow(user)
+    active_relationships.find_by(following_id: user.id)&.destroy
   end
 
   def following?(user)
