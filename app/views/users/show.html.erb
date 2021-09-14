@@ -28,9 +28,29 @@
 <p>
   <strong><%= User.human_attribute_name(:avatar) %>:</strong>
   <% if @user.avatar.attached? %>
-    <br>
     <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
   <% end %>
+</p>
+
+<p>
+  <% unless @user == current_user %>
+    <% if current_user.following?(@user) %>
+      <%= form_with(model:@user, url: user_relationships_path(@user), method: :delete, local: true) do |f| %>
+      <%= f.submit t('users.show.unfollow') %>
+      <% end %>
+    <% else %>
+      <%= form_with(model:@user, url: user_relationships_path(@user), method: :post, local: true) do |f| %>
+      <%= f.submit t('users.show.following') %>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+ <strong><%= t('users.show.followings') %></strong>
+ <%= link_to "#{@user.active_relationships.count}", followings_user_path(@user) %>
+ <strong><%= t('users.show.followers') %></strong>
+ <%= link_to "#{@user.passive_relationships.count}", followers_user_path(@user) %>
 </p>
 
 <% if current_user == @user %>

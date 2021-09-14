@@ -45,6 +45,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -62,5 +63,4 @@ gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
-
 gem 'image_processing', '~> 1.2'
