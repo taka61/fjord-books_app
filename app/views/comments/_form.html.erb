@@ -1,0 +1,12 @@
+<h3><%= t('comments.form.title') %></h3>
+<%= form_with(model: [commentable, Comment.new]) do |form| %>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :body, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

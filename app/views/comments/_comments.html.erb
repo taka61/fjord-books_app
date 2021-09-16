@@ -1,0 +1,15 @@
+<h3><%= Comment.model_name.human %></h3>
+<% if comments = commentable.comments.order(:id).presence %>
+  <% comments.each do |comment| %>
+    <ul>
+      <li><strong><%= Comment.human_attribute_name(:user) %>：</strong><%= comment.user.name_or_email %></li>
+      <p><strong><%= Comment.human_attribute_name(:comment) %>：</strong><%= comment.body %></p>
+      <p><strong><%= Comment.human_attribute_name(:created_at) %>：</strong><%= l comment.created_at, format: :short %></p>
+    </ul>
+  <% if current_user == comment.user %>
+    <p><%= link_to t('views.common.destroy'),  [commentable, comment], method: :delete %></p>
+  <% end %>
+  <% end %>
+<% else %>
+  <p><%= t('comments.form.notice') %></p>
+<% end %>
