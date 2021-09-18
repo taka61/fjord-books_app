@@ -1,6 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Agatha_book:
+agatha_book:
   title: ビック4
   memo: ポワロ初期の作品。急展開が多く楽しみやすい。
   author: アガサ・クリスティ
