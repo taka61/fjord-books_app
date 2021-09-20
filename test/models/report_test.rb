@@ -1,7 +1,5 @@
 # frozen_string_literal: true
-
-require 'test_helper'
-require 'date'
+require "test_helper"
 
 class ReportTest < ActiveSupport::TestCase
   setup do
@@ -9,11 +7,11 @@ class ReportTest < ActiveSupport::TestCase
     @bob = users(:bob)
   end
 
-  test '#editable?' do
+  test "#editable?" do
     assert @report.editable?(@bob)
   end
 
-  test '#created_on' do
+  test "#created_on" do
     assert_equal Date.new(2021, 9, 7), @report.created_on
   end
 end
