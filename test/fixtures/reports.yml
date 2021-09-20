@@ -1,11 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
-  title: MyString
-  content: MyText
-
-two:
-  user: two
-  title: MyString
-  content: MyText
+  user: bob
+  title: 'CSS初級'
+  content: 'progateで学習した後取り組みました。'
+  created_at: <%= Time.new(2021, 9, 7, 16, 52, 11) %>
